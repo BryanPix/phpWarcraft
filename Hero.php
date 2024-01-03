@@ -1,6 +1,7 @@
-<?php 
-  
-  class Hero extends Character{
+<?php
+
+class Hero extends Character
+{
 
     // Attibuts
     private string $_name;
@@ -11,44 +12,55 @@
     private int $_damage;
 
     // Getters 
-    
-    public function getName(){
+
+    public function getName()
+    {
         return $this->_name;
     }
-    public function getWeaponName(){
+    public function getWeaponName()
+    {
         return $this->_weaponName;
     }
-    public function getWeaponDamage(){
+    public function getWeaponDamage()
+    {
         return $this->_weaponDamage;
     }
-    public function getShieldName(){
+    public function getShieldName()
+    {
         return $this->_shieldName;
     }
-    public function getShieldValue(){
+    public function getShieldValue()
+    {
         return $this->_shieldValue;
     }
 
     //Setters
-    
-    public function setName(string $name){
+
+    public function setName(string $name)
+    {
         $this->_name = $name;
     }
-    public function setWeaponName(string $weaponName){
+    public function setWeaponName(string $weaponName)
+    {
         $this->_weaponName = $weaponName;
     }
-    public function setWeaponDamage(int $weaponDamage){
+    public function setWeaponDamage(int $weaponDamage)
+    {
         $this->_weaponDamage = $weaponDamage;
     }
-    public function setShieldName(string $shieldName){
+    public function setShieldName(string $shieldName)
+    {
         $this->_shieldName = $shieldName;
     }
-    public function setShieldValue(int $shieldValue){
+    public function setShieldValue(int $shieldValue)
+    {
         $this->_shieldValue = $shieldValue;
     }
 
 
     // construct
-    public function __construct(int $health, int $rage,string $name, string $weaponName,  int $weaponDamage, string $shieldName, int $shieldValue){
+    public function __construct(int $health, int $rage, string $name, string $weaponName, int $weaponDamage, string $shieldName, int $shieldValue)
+    {
 
         parent::__construct($health, $rage);
 
@@ -76,8 +88,8 @@
 
     public function beAttacked(int $_attackValue)
     {
-    $realDamage = $_attackValue - $this->getShieldValue();
-    $this->setHealth($this->getHealth() - $realDamage);
-    } 
+        $realDamage = $_attackValue - $this->getShieldValue();
+        $this->setHealth($this->getHealth() - $realDamage);
+    }
 }
 ?>
