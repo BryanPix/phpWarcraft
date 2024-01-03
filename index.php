@@ -30,15 +30,29 @@ $orc = new Orc(5000, 0, 'Eau');
     $orc->getInfosOrc();
     ?>
     <p><u>Attaque</u> :</p>
-    <?php
+    <?php 
     echo 'Un Orc est apparu ! <br> <br>';
-    echo 'L\'Orc attaque ' . $hero->getName() . ' avec une massue. <br>';
-    $orc->attack();
-    echo $hero->getName() . ' subit ' . $orc->getDamage() . ' dommage ! <br>';
-    $hero->beAttacked($orc->getDamage());
-    echo 'Il reste à ' . $hero->getName() . ' ' . $hero->getHealth() . '<br>';
-    ?>
+    while($hero->getHealth() > 0) { 
+       
+        // Attaque du Hero
 
+        echo $hero->getName() . ' attaque l\'Orc. <br>';
+        $hero->getWeaponDamage();
+        echo $hero->getName() . ' inflige ' . $hero->getWeaponDamage() . ' points de dégats à l\'Orc! <br>';
+        $orc->setHealth($orc->getHealth() - $hero->getWeaponDamage());
+        echo 'Il reste à l\'Orc' .   ' ' . $orc->getHealth() . ' points de vie ! <br>';
+        echo '<br><br> ';
+        
+        // Attaque de l'Orc
+       
+        echo 'L\'Orc attaque ' . $hero->getName() . ' avec une massue. <br>';
+        $orc->attack();
+        echo $hero->getName() . ' subit ' . $orc->getDamage() . ' points de dégats ! <br>';
+        $hero->beAttacked($orc->getDamage());
+        echo 'Il reste à ' . $hero->getName() . ' ' . $hero->getHealth() . ' points de vie ! <br>';
+        echo '<br><br>';
+}
+        ?>
 </body>
 
 </html>
